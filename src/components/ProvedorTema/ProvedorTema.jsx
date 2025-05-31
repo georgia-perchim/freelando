@@ -16,7 +16,7 @@ const theme = {
             c: ''
         },
         neutral: {
-            a: '',
+            a: '#373737',
             b: '',
             c: '',
             d: ''
@@ -27,8 +27,11 @@ const theme = {
         }
     },
     spacings: {
+        xs: '8px',
         s: '16px',
-        l: '32px'
+        l: '32px',
+        xl: '48px',
+        xxl: '64px'
     },
     fontFamily: '"Montserrat", sans-serif'
 }
