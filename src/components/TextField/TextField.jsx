@@ -1,4 +1,4 @@
-import styled from "@emotion/styled/macro"
+import styled from "@emotion/styled";
 
 const StylizedLabel = styled.label`
     display: block;
@@ -13,6 +13,7 @@ const StylizedInput = styled.input`
     display: block;
     width: 100%;
     margin-top: ${props => props.theme.spacings.xs};
+    margin-bottom: ${props => props.theme.spacings.s};
     background: ${props => props.theme.colors.white};
     border: 1px solid;
     border-color: ${props => props.theme.colors.neutral.a};

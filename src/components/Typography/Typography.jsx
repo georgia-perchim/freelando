@@ -9,7 +9,7 @@ const components = {
     body2: 'p',
     body2Bold: 'strong',
     subtitled: 'p'
-}
+};
 
 const styles = {
     h1: `
@@ -52,7 +52,7 @@ const styles = {
         font-size: 14px;
         line-height: 17px;
     `
-}
+};
 
 export const Typography = ({ variant, component, children }) => {
     const tag = components[component]
@@ -62,4 +62,4 @@ export const Typography = ({ variant, component, children }) => {
             {children}
         </ComponentUsed>
     )
-}
+};
