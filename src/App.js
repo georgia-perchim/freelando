@@ -1,7 +1,7 @@
 import { Col, Container, Row } from "react-grid-system";
 import { Card } from "./components/Card/Card";
 import { Styles } from "./components/GlobalStyles/Styles";
-import { ProvedorTema } from "./components/ProvedorTema/ProvedorTema";
+import { SlyledThemeProvider } from "./components/ThemeProvider/ThemeProvider";
 import { TextField } from "./components/TextField/TextField";
 import { Typography } from "./components/Typography/Typography";
 import { Button } from "./components/Button/Button";
@@ -15,6 +15,7 @@ import { Link } from "./components/Link/Link";
 import { Footer } from "./components/Footer/Footer";
 import { InlineList } from "./components/InlineList/InlineList";
 import { InlineListItem } from "./components/InlineListItem/InlineListItem";
+import { DropdownList } from "./components/DropdownList/DropdownList";
 
 const brazilianStates = [
   { "text": "Acre", "value": "AC" },
@@ -48,7 +49,7 @@ const brazilianStates = [
 
 function App() {
   return (
-    <ProvedorTema>
+    <SlyledThemeProvider>
       <Styles />
       <Header>
         <Container>
@@ -62,9 +63,8 @@ function App() {
           </Row>
         </Container>
       </Header>
-      <Container style={{ margin: '80px 0' }}>
         <Row justify="center">
-          <Col lg={6} md={8} sm={12}>
+          <Col xxx={6} xxl={6} xl={6} lg={6} md={8} sm={12} style={{ margin: '80px 0' }}>
             <Card>
               <Typography variant="h1" component="h1">
                 Crie seu cadastro
@@ -81,7 +81,7 @@ function App() {
               </Row>
               <Row>
                 <Col lg={4} md={4} sm={4}>
-                  <TextField label="Estado" />
+                  <DropdownList label="Estado" options={brazilianStates} />
                 </Col>
                 <Col lg={8} md={8} sm={8}>
                   <TextField label="Cidade" />
@@ -113,7 +113,6 @@ function App() {
             </Card>
           </Col>
         </Row>
-      </Container>
       <Footer>
         <Container>
           <Row align="center">
@@ -149,7 +148,7 @@ function App() {
           </Row>
         </Container>
       </Footer>
-    </ProvedorTema>
+    </SlyledThemeProvider>
   );
 }
 

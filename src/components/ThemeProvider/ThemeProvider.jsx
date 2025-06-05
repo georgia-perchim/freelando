@@ -35,7 +35,7 @@ const theme = {
     fontFamily: '"Montserrat", sans-serif'
 }
 
-export const ProvedorTema = ({ children }) => {
+export const SlyledThemeProvider = ({ children }) => {
     return <ThemeProvider theme={theme}>
         { children }
     </ThemeProvider>
