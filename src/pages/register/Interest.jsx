@@ -1,9 +1,9 @@
 import { Typography } from "../../components/Typography/Typography";
 import RadioGroup from "../../components/Radio/RadioGroup";
-import { useState } from "react";
 import { Col, Row } from "react-grid-system";
 import { Button } from "../../components/Button/Button";
 import { Link } from "react-router-dom";
+import { useUserRegistrationContext } from "../../context/UserRegistration";
 
 const options = [
   {
@@ -33,7 +33,8 @@ const options = [
 ];
 
 const Interest = () => {
-  const [option, setOption] = useState("");
+  
+  const { user, setInterest } = useUserRegistrationContext();
 
   return (
     <div style={{ textAlign: "center" }}>
@@ -43,7 +44,7 @@ const Interest = () => {
       <Typography variant="h3" component="h2">
         Qual a área de interesse?
       </Typography>
-      <RadioGroup options={options} value={option} onChange={setOption} />
+      <RadioGroup options={options} value={user.interest} onChange={setInterest} />
       <Row>
         <Col lg={6} md={6} sm={6}>
           <Link to="/cadastro">

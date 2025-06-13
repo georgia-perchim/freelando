@@ -65,13 +65,11 @@ const StylizedButton = styled.button`
     }
 `;
 
-export const DropdownList = ({ label, options }) => {
+export const DropdownList = ({ label, options, value, onChange }) => {
     const [open, toggleVisibility] = useState(false);
 
     const [focusedOption, setFocusedOption] = useState(null);
     
-    const [selectedOption, setSelectedOption] = useState(null);
-
     const changeSelected = (event) => {
         toggleVisibility(true)
         switch (event.key) {
@@ -100,7 +98,7 @@ export const DropdownList = ({ label, options }) => {
                 event.preventDefault();
                 setFocusedOption(null)
                 toggleVisibility(false)
-                setSelectedOption(options[focusedOption])
+                onChange(options[focusedOption])
                 break;
             case 'Tab':
             case 'Escape':
@@ -117,16 +115,16 @@ export const DropdownList = ({ label, options }) => {
     return(
         <StylizedLabel>
             {label}
-            <StylizedButton open={open} onClick={() => toggleVisibility(!open)} onKeyDown={changeSelected}>
+            <StylizedButton open={open} onClick={() => toggleVisibility(!open)} onKeyDown={changeSelected} type='button'>
                 <div>
-                    { selectedOption ? selectedOption.text : 'Selecione' }
+                    { value ? value.text : 'Selecione' }
                 </div>
                 <div>
                     <span>{open ? '▲' : '▼'}</span>
                 </div>
             </StylizedButton>
             {open && <StylizedDropdownList>
-                {options.map((option, index) => <StyledDropdownListItem key={option.value} activeFocus={index === focusedOption} onClick={() => setSelectedOption(option)}>
+                {options.map((option, index) => <StyledDropdownListItem key={option.value} activeFocus={index === focusedOption} onClick={() => onChange(option)}>
                     {option.text}
                 </StyledDropdownListItem>)}
             </StylizedDropdownList>}

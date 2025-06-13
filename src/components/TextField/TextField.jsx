@@ -12,6 +12,7 @@ const StylizedLabel = styled.label`
 const StylizedInput = styled.input`
     display: block;
     width: 100%;
+    padding: 0 ${props => props.theme.spacings.s};
     margin-top: ${props => props.theme.spacings.xs};
     margin-bottom: ${props => props.theme.spacings.s};
     background: ${props => props.theme.colors.white};
@@ -24,11 +25,11 @@ const StylizedInput = styled.input`
     line-height: 17px;
 `;
 
-export const TextField = ({ label }) => {
+export const TextField = ({ label, value, onChange, type = 'text' }) => {
     return (
         <StylizedLabel>
             {label}
-            <StylizedInput />
+            <StylizedInput value={value} onChange={ event => onChange(event.target.value) } type={type} />
         </StylizedLabel>
     )
-}
+};

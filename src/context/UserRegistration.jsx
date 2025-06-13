@@ -1,4 +1,4 @@
-import { createContext, useState } from "react";
+import { createContext, useContext, useState } from "react";
 
 const initialUser = {
     profile: '',
@@ -13,6 +13,7 @@ const initialUser = {
 
 export const UserRegistrationContext = createContext({
     user: initialUser,
+    errors: {},
     setProfile: () => null,
     setInterest: () => null,
     setFullName: () => null,
@@ -24,7 +25,7 @@ export const UserRegistrationContext = createContext({
 });
 
 export const useUserRegistrationContext = () => {
-    return useState(UserRegistrationContext);
+    return useContext(UserRegistrationContext);
 };
 
 export const UserRegistrationProvider = ({ children }) => {

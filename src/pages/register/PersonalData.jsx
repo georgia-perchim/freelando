@@ -4,6 +4,7 @@ import { Button } from "../../components/Button/Button";
 import { Link } from "react-router-dom";
 import { TextField } from "../../components/TextField/TextField";
 import { DropdownList } from "../../components/DropdownList/DropdownList";
+import { useUserRegistrationContext } from "../../context/UserRegistration";
 
 const brazilianStates = [
   { text: "Acre", value: "AC" },
@@ -36,6 +37,8 @@ const brazilianStates = [
 ];
 
 const PersonalData = () => {
+  const { user, setFullName, setSt, setCity, setEmail, setPassword, setPasswordConfirmed } = useUserRegistrationContext();
+
   return (
     <div>
       <div style={{ textAlign: 'center' }}>
@@ -50,33 +53,33 @@ const PersonalData = () => {
       </div>
       <Row>
         <Col>
-          <TextField label="Nome Completo" />
+          <TextField label="Nome Completo" value={user.fullName} onChange={setFullName} />
         </Col>
       </Row>
       <Row>
         <Col lg={4} md={4} sm={4}>
-          <DropdownList label="Estado" options={brazilianStates} />
+          <DropdownList label="Estado" options={brazilianStates} value={user.st} onChange={setSt} />
         </Col>
         <Col lg={8} md={8} sm={8}>
-          <TextField label="Cidade" />
+          <TextField label="Cidade" value={user.city} onChange={setCity} />
         </Col>
       </Row>
       <Row>
         <Col>
-          <TextField label="E-mail" />
+          <TextField label="E-mail" type="email" value={user.email} onChange={setEmail} />
         </Col>
       </Row>
       <Row>
         <Col lg={6} md={6} sm={6}>
-          <TextField label="Senha" />
+          <TextField label="Senha" type="password" value={user.password} onChange={setPassword} />
         </Col>
         <Col lg={6} md={6} sm={6}>
-          <TextField label="Repita a senha" />
+          <TextField label="Repita a senha" type="password" value={user.passwordConfirmed} onChange={setPasswordConfirmed} />
         </Col>
       </Row>
       <Row>
         <Col lg={6} md={6} sm={6}>
-          <Link to="..">
+          <Link to="/cadastro/interesses">
             <Button variant="secundary">Anterior</Button>
           </Link>
         </Col>
