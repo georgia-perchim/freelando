@@ -1,6 +1,6 @@
 import imgCompleted from "./assets/cliente-concluido.png";
 import { Typography } from "../../components/Typography/Typography";
-import styled from "@emotion/styled/macro";
+import styled from "@emotion/styled";
 import { Col, Row } from "react-grid-system";
 import { Link } from "react-router-dom";
 import { Button } from "../../components/Button/Button";

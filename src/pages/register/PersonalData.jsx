@@ -37,10 +37,24 @@ const brazilianStates = [
 ];
 
 const PersonalData = () => {
-  const { user, setFullName, setSt, setCity, setEmail, setPassword, setPasswordConfirmed } = useUserRegistrationContext();
+  const {
+    user,
+    setFullName,
+    setSt,
+    setCity,
+    setEmail,
+    setPassword,
+    setPasswordConfirmed,
+    submitUser
+  } = useUserRegistrationContext();
+
+  const registrationCompleted = (event) => {
+    event.preventDefault();
+    submitUser();
+  };
 
   return (
-    <div>
+    <form onSubmit={registrationCompleted}>
       <div style={{ textAlign: 'center' }}>
         <Typography variant="h1" component="h1">
           Crie seu cadastro
@@ -53,28 +67,56 @@ const PersonalData = () => {
       </div>
       <Row>
         <Col>
-          <TextField label="Nome Completo" value={user.fullName} onChange={setFullName} />
+          <TextField
+            label="Nome Completo"
+            value={user.fullName}
+            onChange={(value) => setFullName({ fullName: value })}
+          />
         </Col>
       </Row>
       <Row>
         <Col lg={4} md={4} sm={4}>
-          <DropdownList label="Estado" options={brazilianStates} value={user.st} onChange={setSt} />
+          <DropdownList
+            label="Estado"
+            options={brazilianStates}
+            value={user.st}
+            onChange={(value) => setSt({ st: value })}
+          />
         </Col>
         <Col lg={8} md={8} sm={8}>
-          <TextField label="Cidade" value={user.city} onChange={setCity} />
+          <TextField
+            label="Cidade"
+            value={user.city}
+            onChange={(value) => setCity({ city: value })}
+          />
         </Col>
       </Row>
       <Row>
         <Col>
-          <TextField label="E-mail" type="email" value={user.email} onChange={setEmail} />
+          <TextField
+            label="E-mail"
+            type="email"
+            value={user.email}
+            onChange={(value) => setEmail({ email: value })}
+          />
         </Col>
       </Row>
       <Row>
         <Col lg={6} md={6} sm={6}>
-          <TextField label="Senha" type="password" value={user.password} onChange={setPassword} />
+          <TextField
+            label="Senha"
+            type="password"
+            value={user.password}
+            onChange={(value) => setPassword({ password: value })}
+          />
         </Col>
         <Col lg={6} md={6} sm={6}>
-          <TextField label="Repita a senha" type="password" value={user.passwordConfirmed} onChange={setPasswordConfirmed} />
+          <TextField
+            label="Repita a senha"
+            type="password"
+            value={user.passwordConfirmed}
+            onChange={(value) => setPasswordConfirmed({ passwordConfirmed: value })}
+          />
         </Col>
       </Row>
       <Row>
@@ -85,14 +127,13 @@ const PersonalData = () => {
         </Col>
         <Col lg={6} md={6} sm={6}>
           <div style={{ textAlign: "right" }}>
-            <Link to="/cadastro/concluido">
-              <Button variant="primary">Próximo</Button>
-            </Link>
+            <Button variant="primary">Próximo</Button>
           </div>
         </Col>
       </Row>
-    </div>
+    </form>
   );
 };
 
 export default PersonalData;
+

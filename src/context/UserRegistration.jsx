@@ -1,4 +1,5 @@
 import { createContext, useContext, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const initialUser = {
     profile: '',
@@ -22,6 +23,8 @@ export const UserRegistrationContext = createContext({
     setEmail: () => null,
     setPassword: () => null,
     setPasswordConfirmed: () => null,
+    submitUser: () => null,
+    selectingInterests: () => null
 });
 
 export const useUserRegistrationContext = () => {
@@ -29,6 +32,8 @@ export const useUserRegistrationContext = () => {
 };
 
 export const UserRegistrationProvider = ({ children }) => {
+
+    const navigate = useNavigate();
 
     const [user, setUser] = useState(initialUser);
 
@@ -50,11 +55,11 @@ export const UserRegistrationProvider = ({ children }) => {
         })
     };
 
-    const setFullName = ({ fullname }) => {
+    const setFullName = ({ fullName }) => {
         setUser(previousState => {
             return {
                 ...previousState,
-                fullname
+                fullName
             }
         })
     };
@@ -103,6 +108,15 @@ export const UserRegistrationProvider = ({ children }) => {
             }
         })
     };
+
+    const submitUser = () => {
+        console.log(user);
+        navigate("/cadastro/concluido")
+    };
+
+    const selectingInterests = () => {
+        return !!user.profile
+    };
     
     const context = {
         user,
@@ -113,7 +127,9 @@ export const UserRegistrationProvider = ({ children }) => {
         setCity,
         setEmail,
         setPassword,
-        setPasswordConfirmed
+        setPasswordConfirmed,
+        submitUser,
+        selectingInterests
     };
 
     return (

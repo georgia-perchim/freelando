@@ -2,8 +2,9 @@ import { Typography } from "../../components/Typography/Typography";
 import RadioGroup from "../../components/Radio/RadioGroup";
 import { Col, Row } from "react-grid-system";
 import { Button } from "../../components/Button/Button";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useUserRegistrationContext } from "../../context/UserRegistration";
+import { useEffect } from "react";
 
 const options = [
   {
@@ -34,7 +35,15 @@ const options = [
 
 const Interest = () => {
   
-  const { user, setInterest } = useUserRegistrationContext();
+  const { user, setInterest, selectingInterests } = useUserRegistrationContext();
+
+  // const navigate = useNavigate();
+
+  // useEffect(() => {
+  //   if (!selectingInterests()) {
+  //     navigate('/cadastro/')
+  //   }
+  // }, [navigate, selectingInterests])
 
   return (
     <div style={{ textAlign: "center" }}>
