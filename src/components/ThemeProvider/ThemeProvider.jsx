@@ -28,15 +28,16 @@ const theme = {
     spacings: {
         xs: '8px',
         s: '16px',
+        m: '24px',
         l: '32px',
         xl: '48px',
         xxl: '64px'
     },
     fontFamily: '"Montserrat", sans-serif'
-}
+};
 
 export const SlyledThemeProvider = ({ children }) => {
     return <ThemeProvider theme={theme}>
         { children }
     </ThemeProvider>
-}
+};

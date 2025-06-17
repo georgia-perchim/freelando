@@ -5,7 +5,6 @@ const StylizedLabel = styled.label`
   align-items: center;
   font-size: 16px;
   margin-left: ${(props) => props.theme.spacings.xs};
-  margin-bottom: ${(props) => props.theme.spacings.m};
   cursor: pointer;
   padding: ${(props) => props.theme.spacings.xs};
   &:hover {

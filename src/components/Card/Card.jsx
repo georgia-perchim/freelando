@@ -1,17 +1,19 @@
-import styled from '@emotion/styled';
+import styled from "@emotion/styled";
 
 const StyledDiv = styled.div`
-    padding: ${props => props.theme.spacings.l};
-    background: ${props => props.theme.colors.secondary.a};
-    border: 1px solid;
-    border-color: ${props => props.theme.colors.primary.a};
-    border-radius: ${props => props.theme.spacings.s};
+  padding: ${(props) => props.theme.spacings.l};
+  background: ${(props) =>
+    props.variant === "primary"
+      ? props.theme.colors.secondary.a
+      : props.theme.colors.secondary.c};
+  border: ${(props) => (props.withBorder ? "1px solid" : "none")};
+  border-radius: ${(props) => props.theme.spacings.s};
 `;
 
-export const Card = ({ children }) => {
-    return (
-        <StyledDiv>
-            {children}
-        </StyledDiv>
-    )
+export const Card = ({ children, withBorder = true, variant = "primary" }) => {
+  return (
+    <StyledDiv withBorder={withBorder} variant={variant}>
+      {children}
+    </StyledDiv>
+  );
 };

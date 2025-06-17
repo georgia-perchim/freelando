@@ -27,9 +27,7 @@ const BaseLayout = () => {
           </Row>
         </Container>
       </Header>
-      <Container>
-        <Outlet />
-      </Container>
+      <Outlet />
       <Footer>
         <Container>
           <Row align="center">

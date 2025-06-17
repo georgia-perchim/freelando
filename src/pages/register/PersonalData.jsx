@@ -55,7 +55,7 @@ const PersonalData = () => {
 
   return (
     <form onSubmit={registrationCompleted}>
-      <div style={{ textAlign: 'center' }}>
+      <div style={{ textAlign: 'center'}}>
         <Typography variant="h1" component="h1">
           Crie seu cadastro
         </Typography>

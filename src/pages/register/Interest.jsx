@@ -41,34 +41,36 @@ const Interest = () => {
 
   // useEffect(() => {
   //   if (!selectingInterests()) {
-  //     navigate('/cadastro/')
+  //     navigate('/cadastro')
   //   }
   // }, [navigate, selectingInterests])
 
   return (
-    <div style={{ textAlign: "center" }}>
-      <Typography variant="h1" component="h1">
-        Crie seu cadastro
-      </Typography>
-      <Typography variant="h3" component="h2">
-        Qual a área de interesse?
-      </Typography>
-      <RadioGroup options={options} value={user.interest} onChange={setInterest} />
-      <Row>
-        <Col lg={6} md={6} sm={6}>
-          <Link to="/cadastro">
-            <Button variant="secundary">Anterior</Button>
-          </Link>
-        </Col>
-        <Col lg={6} md={6} sm={6}>
-          <div style={{ textAlign: "right" }}>
-            <Link to="/cadastro/dados-pessoais">
-              <Button variant="primary">Próximo</Button>
+    <>
+      <div style={{ textAlign: "center" }}>
+        <Typography variant="h1" component="h1">
+          Crie seu cadastro
+        </Typography>
+        <Typography variant="h3" component="h2">
+          Qual a área de interesse?
+        </Typography>
+        <RadioGroup options={options} value={user.interest} onChange={setInterest} />
+        <Row>
+          <Col lg={6} md={6} sm={6}>
+            <Link to="/cadastro">
+              <Button variant="secundary">Anterior</Button>
             </Link>
-          </div>
-        </Col>
-      </Row>
-    </div>
+          </Col>
+          <Col lg={6} md={6} sm={6}>
+            <div style={{ textAlign: "right" }}>
+              <Link to="/cadastro/dados-pessoais">
+                <Button variant="primary">Próximo</Button>
+              </Link>
+            </div>
+          </Col>
+        </Row>
+      </div>
+    </>
   );
 };
 
